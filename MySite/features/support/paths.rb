@@ -20,6 +20,11 @@ module NavigationHelpers
       
     when /^the Details about Aladdin/
       '/movies/1'
+      
+    when /^the Edit Movie/
+      '/movie/1'
+    when /^the Edit Movie/
+      '/movie/1/edit'
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
