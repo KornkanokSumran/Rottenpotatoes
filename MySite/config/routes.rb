@@ -1,5 +1,7 @@
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 MySite::Application.routes.draw do
+  # Route that posts ’Search TMDb’ form
+  post '/movies/search_tmdb'
   resources :movies
   root :to => redirect('/movies')
   
@@ -11,4 +13,5 @@ MySite::Application.routes.draw do
   get  'auth/failure' => 'sessions#failure'
   get 'auth/facebook' => 'login'
 end
+
 

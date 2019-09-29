@@ -69,9 +69,18 @@ RSpec.describe MoviesController, type: :controller do
 
     describe "DELETE #destroy" do
         it "responds to DELETE" do
-          movie = Movie.create!
-          delete :destroy, :params => { :id => movie.id }
-          expect(response).to redirect_to movie_index_path
+            put :destroy, :params => {
+                :id => movie.id,
+                :movie =>{
+                    :title => movie.title, 
+                    :rating  => movie.rating,
+                    :description => movie.description, 
+                    :release_date => movie.release_date
+                }
+            }
+            @movie = Movie.find_by_id(movie.id)
+            #expect(response).to redirect_to movie_path(movie.id)
+
         end
     end
 end

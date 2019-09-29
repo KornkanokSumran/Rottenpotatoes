@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
   def set_current_user
     @current_user = Moviegoer.where(id: session[:user_id]).first
   end
+  
+  
 
   def authenticate!
     unless @current_user

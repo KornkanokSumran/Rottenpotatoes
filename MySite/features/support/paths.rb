@@ -18,9 +18,13 @@ module NavigationHelpers
     when /^the Create New Movie page/ 
       '/movies/new'
       
+    # when /^the Details about Aladdin/
+    #   '/movies/1'
+    
     when /^the Details about Aladdin/
-      '/movies/1'
+      movie_path(1)
       
+    
     when /^the Edit Movie/
       '/movie/1'
     when /^the Edit Movie/
@@ -30,7 +34,7 @@ module NavigationHelpers
     #
     #   when /^(.*)'s profile page$/i
     #     user_profile_path(User.find_by_login($1))
-
+    
     else
       begin
         page_name =~ /^the (.*) page$/

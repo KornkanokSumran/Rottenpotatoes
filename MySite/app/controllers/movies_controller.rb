@@ -1,5 +1,11 @@
 # This file is app/controllers/movies_controller.rb
 class MoviesController < ApplicationController
+  def search_tmdb
+    # hardwire to simulate failure
+    flash[:warning] = "'#{params[:search_terms]}' was not found in TMDb."
+    redirect_to movies_path
+  end
+  
   def index
     @movies = Movie.all
   end
@@ -41,5 +47,7 @@ class MoviesController < ApplicationController
     def movie_params
       params.require(:movie).permit(:title, :rating, :description, :release_date)
     end
+    
+  
    
 end
