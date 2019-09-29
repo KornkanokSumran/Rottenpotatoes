@@ -10,5 +10,4 @@ Scenario: Try to add nonexistent movie (sad path)
   Then I should see "Search TMDb for a movie"
   When I fill in "Search Terms" with "Movie That Does Not Exist"
   And I press "Search TMDb"
-  Then I should be on the home page
-  And I should see "'Movie That Does Not Exist' was not found in TMDb."
+  Then I should see "'Movie That Does Not Exist' was not found in TMDb."
