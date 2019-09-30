@@ -1,8 +1,27 @@
 # This file is app/controllers/movies_controller.rb
+
 class MoviesController < ApplicationController
   def search_tmdb
     # hardwire to simulate failure
-    flash[:warning] = "'#{params[:search_terms]}' was not found in TMDb."
+    Tmdb::Api.key 'a39ff553b65193a0084d55309a069293'
+    #@movie =  Tmdb::Search.movie(params[:search_terms])
+    #flash[:warning] = "'#{params[:search_terms]}' was not found in TMDb"
+    #puts @movie
+    
+    search = Tmdb::Search.new
+    search.resource('movie')
+    search.query("'#{params[:search_terms]}'")
+    result = search.fetch
+    #puts result[0]
+
+    if result[0].nil?
+      flash[:warning] = "'#{params[:search_terms]}' was not found in TMDb"
+    else
+      result.each do |each|
+        @movie = Movie.create!(title: each['original_title'], rating: 'G', release_date: each['release_date'])
+        flash[:warning] = "'#{params[:search_terms]}' was found in TMDb"
+      end
+    end
     redirect_to movies_path
   end
   

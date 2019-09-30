@@ -1,4 +1,4 @@
--#  This file is app/views/movies/index.html.haml
+
 %h1 All Movies
  
 %table#movies
@@ -10,8 +10,8 @@
       %th More Info
   %tbody
     - @movies.each do |movie|
-      %tr{:class => ('adult' unless movie.rating =~ /^G|PG$/)}
-        %td= movie.title
+      %tr{:class => movie.rating}
+        %td= movie.title 
         %td= movie.rating
         %td= movie.release_date
         %td= link_to "More about #{movie.title}", movie_path(movie)

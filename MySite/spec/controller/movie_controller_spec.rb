@@ -79,7 +79,7 @@ RSpec.describe MoviesController, type: :controller do
                 }
             }
             @movie = Movie.find_by_id(movie.id)
-            #expect(response).to redirect_to movie_path(movie.id)
+            expect(response).to redirect_to(movie_url)
 
         end
     end

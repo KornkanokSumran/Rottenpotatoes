@@ -15,20 +15,23 @@ module NavigationHelpers
 
     when /^the home\s?page$/
       '/'
+    when /^the RottenPotatoes home page/
+      '/movies'
+      
     when /^the Create New Movie page/ 
       '/movies/new'
       
     # when /^the Details about Aladdin/
     #   '/movies/1'
     
-    when /^the Details about Aladdin/
-      movie_path(1)
+    #when /^the Details about Aladdin/
+    #  movie_path(1)
       
-    
-    when /^the Edit Movie/
-      '/movie/1'
-    when /^the Edit Movie/
-      '/movie/1/edit'
+    #when /^the Edit Movie/
+    #  '/movie/1'
+    #when /^the Edit Movie/
+    #  '/movie/1/edit'
+      
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

@@ -10,4 +10,9 @@ Scenario: Go to Create new page
   When I follow "Add new movie"
   Then I should be on the Create New Movie page
   
+Scenario: Banner is real
+    Given I am on the Create New Movie page
+    When I follow "RottenPotatoes"
+    Then I should see "All Movies"
+  
   

@@ -57,6 +57,7 @@ When /^(?:|I )follow "([^"]*)"$/ do |link|
   click_link(link)
 end
 
+
 When /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
   fill_in(field, :with => value)
 end
@@ -81,6 +82,7 @@ When /^(?:|I )fill in the following:$/ do |fields|
     When %{I fill in "#{name}" with "#{value}"}
   end
 end
+
 
 When /^(?:|I )select "([^"]*)" from "([^"]*)"$/ do |value, field|
   select(value, :from => field)
