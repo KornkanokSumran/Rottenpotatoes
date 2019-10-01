@@ -8,6 +8,13 @@
  
   %body
     %header= link_to 'RottenPotatoes', movies_path,{:style => 'color: red'}
+    #main
+      #login
+      - if @current_user
+        %p.welcome  Welcome, #{@current_user.name}!
+        = link_to 'Log Out', logout_path, :method => :post
+      - else
+        %p.login= link_to 'Log in with Facebook', OmniAuth.login_path(:facebook)
     - if flash[:notice]
       #notice.message= flash[:notice]
     - elsif flash[:warning]
@@ -15,11 +22,4 @@
     = yield
     
     
-  #login
-  - if @current_user
-    %p.welcome  Welcome, #{@current_user.name}!
-    = link_to 'Log Out', logout_path
-  - else
-    %p.login= link_to 'Log in with your facebook account', 'auth/facebook'
-    
-    
+  

@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate!
     unless @current_user
-      #redirect_to OmniAuth.login_path(:provider)
+      redirect_to OmniAuth.login_path(:provider)
     end
   end
 end

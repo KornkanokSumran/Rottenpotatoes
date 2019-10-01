@@ -2,6 +2,8 @@
 
 class MoviesController < ApplicationController
   
+  skip_before_filter :authenticate!, only: [ :show, :index ]
+  
   def index
     @movies = Movie.order(:title)
   end
@@ -40,17 +42,12 @@ class MoviesController < ApplicationController
   end
   
   def search_tmdb
-    # hardwire to simulate failure
     Tmdb::Api.key 'a39ff553b65193a0084d55309a069293'
-    #@movie =  Tmdb::Search.movie(params[:search_terms])
-    #flash[:warning] = "'#{params[:search_terms]}' was not found in TMDb"
-    #puts @movie
     
     search = Tmdb::Search.new
     search.resource('movie')
     search.query("'#{params[:search_terms]}'")
     result = search.fetch
-    #puts result[0]
 
     if result[0].nil?
       flash[:warning] = "'#{params[:search_terms]}' was not found in TMDb"
